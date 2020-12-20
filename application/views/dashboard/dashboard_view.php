@@ -76,11 +76,18 @@
 												</a>		
 											</li>
 											<li class="menu-item menu-item-submenu menu-item-rel" data-menu-toggle="click" aria-haspopup="true">
-												<a href="<?php echo base_url(); ?>responden/daftar_responden">
-													<span class="menu-text">Responden</span>
+												<a href="<?php echo base_url(); ?>hasil/daftar_hasil">
+													<span class="menu-text">Hasil Survey</span>
 													<span class="menu-desc"></span>
 													<i class="menu-arrow"></i>
-												</a>												
+												</a>		
+											</li>
+											<li class="menu-item menu-item-submenu menu-item-rel" data-menu-toggle="click" aria-haspopup="true">
+												<a href="<?php echo base_url(); ?>map/sebaranmap">
+													<span class="menu-text">Peta Sebaran</span>
+													<span class="menu-desc"></span>
+													<i class="menu-arrow"></i>
+												</a>		
 											</li>
 										</ul>
 										<!--end::Header Nav-->
@@ -145,8 +152,14 @@
 															</svg>
 															<!--end::Svg Icon-->
 														</span>
-														<div class="text-inverse-primary font-weight-bolder font-size-h2 mt-3">1790</div>
-														<a href="#" class="text-inverse-primary font-weight-bold font-size-lg mt-1">Pelanggan</a>
+														<div class="text-inverse-primary font-weight-bolder font-size-h2 mt-3">
+															<?php $y=0;
+																foreach($all as $row)
+																{$x=$row; $y=$y+$x;}
+																echo $y;
+																?>
+														</div>
+														<a href="#" class="text-inverse-primary font-weight-bold font-size-lg mt-1">Broadcast</a>
 													</div>
 												</div>
 												<!--end::Tiles Widget 11-->
@@ -166,7 +179,13 @@
 															</svg>
 															<!--end::Svg Icon-->
 														</span>
-														<div class="text-inverse-primary font-weight-bolder font-size-h2 mt-3">790</div>
+														<div class="text-inverse-primary font-weight-bolder font-size-h2 mt-3">
+															<?php $y=0;
+																foreach($isi as $row)
+																{$x=$row; $y=$y+$x;}
+																echo $y;
+																?>
+														</div>
 														<a href="#" class="text-inverse-primary font-weight-bold font-size-lg mt-1">Mengisi</a>
 													</div>
 												</div>
@@ -186,7 +205,14 @@
 															</svg>
 															<!--end::Svg Icon-->
 														</span>
-														<div class="text-inverse-primary font-weight-bolder font-size-h2 mt-3">100</div>
+														<div class="text-inverse-primary font-weight-bolder font-size-h2 mt-3">
+														<?php 
+																$y=0;
+																foreach($tol as $row)
+																{$x=$row; $y=$y+$x;}
+																echo $y;
+																?>
+														</div>
 														<a href="#" class="text-inverse-primary font-weight-bold font-size-lg mt-1">Menolak</a>
 													</div>
 												</div>
@@ -207,7 +233,19 @@
 															</svg>
 															<!--end::Svg Icon-->
 														</span>
-														<div class="text-inverse-primary font-weight-bolder font-size-h2 mt-3">900</div>
+														<div class="text-inverse-primary font-weight-bolder font-size-h2 mt-3">
+															<?php $x=0;$y=0;$z=0;$a=0;$b=0;$c=0;
+																foreach($all as $row)
+																{$a=$row; $x=$x+$a;}
+
+																foreach($isi as $row)
+																{$b=$row; $y=$y+$b;}
+
+																foreach($tol as $row)
+																{$c=$row; $z=$z+$c;}
+																echo $x-($y+$z);
+																?>
+														</div>
 														<a href="#" class="text-inverse-primary font-weight-bold font-size-lg mt-1">No Respon</a>
 													</div>
 												</div>
@@ -220,7 +258,7 @@
 									<div class="col-xl-6">
 										<div class="card card-custom card-stretch gutter-b">
 											<div class="card-header border-0 pt-5">
-												<h3 class="card-title font-weight-bolder">Broadcast Survey Pelanggan 2020</h3>
+												<h3 class="card-title font-weight-bolder">Pengisian Survey Pelanggan 2020</h3>
 											</div>
 											<div class="card-body">
 												<div style="width: 450px;margin: 0px auto;">
@@ -340,14 +378,66 @@
 			var myChart = new Chart(ctx, {
 				type: 'bar',
 				data: {
-					labels: ["Jan", "Feb", "Mar", "Apr","Mei","Jun","Jul","Agu","Sep","Okt","Nov","Des"],
+					labels: [<?php
+						$tgl = date("2020-12-19");
+						$tgl1 = date('Y-m-d', strtotime('-1 days', strtotime($tgl)));
+						$tgl2 = date('Y-m-d', strtotime('-2 days', strtotime($tgl)));
+						$tgl3 = date('Y-m-d', strtotime('-3 days', strtotime($tgl)));
+						$tgl4 = date('Y-m-d', strtotime('-4 days', strtotime($tgl)));
+						$tgl5 = date('Y-m-d', strtotime('-5 days', strtotime($tgl)));
+						$tgl6 = date('Y-m-d', strtotime('-6 days', strtotime($tgl)));
+						$tgl7 = date('Y-m-d', strtotime('-7 days', strtotime($tgl)));
+						$dt1 = new DateTime($tgl1);
+						$dt2 = new DateTime($tgl2);
+						$dt3 = new DateTime($tgl3);
+						$dt4 = new DateTime($tgl4);
+						$dt5 = new DateTime($tgl5);
+						$dt6 = new DateTime($tgl6);
+						$dt7 = new DateTime($tgl7);
+						$g = $dt1->format('d-M');
+						$f = $dt2->format('d-M');
+						$e = $dt3->format('d-M');
+						$d = $dt4->format('d-M');
+						$c = $dt5->format('d-M');
+						$b = $dt6->format('d-M');
+						$a = $dt7->format('d-M');
+						echo "'$a','$b','$c','$d','$e','$f','$g'";
+						?>
+					],
 					datasets: [{
 						label: '',
-						data: [
-						14, 
-						42, 
-						3, 
-						24,5,16,7,8,9,10,11,12],
+						data: [<?php
+						$tgl = date("2020-12-19");
+						$tgl1 = date('Y-m-d', strtotime('-1 days', strtotime($tgl)));
+						$tgl2 = date('Y-m-d', strtotime('-2 days', strtotime($tgl)));
+						$tgl3 = date('Y-m-d', strtotime('-3 days', strtotime($tgl)));
+						$tgl4 = date('Y-m-d', strtotime('-4 days', strtotime($tgl)));
+						$tgl5 = date('Y-m-d', strtotime('-5 days', strtotime($tgl)));
+						$tgl6 = date('Y-m-d', strtotime('-6 days', strtotime($tgl)));
+						$tgl7 = date('Y-m-d', strtotime('-7 days', strtotime($tgl)));
+						$dt1 = new DateTime($tgl1);
+						$dt2 = new DateTime($tgl2);
+						$dt3 = new DateTime($tgl3);
+						$dt4 = new DateTime($tgl4);
+						$dt5 = new DateTime($tgl5);
+						$dt6 = new DateTime($tgl6);
+						$dt7 = new DateTime($tgl7);
+						$a = $dt7->format('Ymd');
+						if(empty($bulan[$a])){$bulan[$a]=0;}
+						$b = $dt6->format('Ymd');
+						if(empty($bulan[$b])){$bulan[$b]=0;}
+						$c = $dt5->format('Ymd');
+						if(empty($bulan[$c])){$bulan[$c]=0;}
+						$d = $dt4->format('Ymd');
+						if(empty($bulan[$d])){$bulan[$d]=0;}
+						$e = $dt3->format('Ymd');
+						if(empty($bulan[$e])){$bulan[$e]=0;}
+						$f = $dt2->format('Ymd');
+						if(empty($bulan[$f])){$bulan[$f]=0;}
+						$g = $dt1->format('Ymd');
+						if(empty($bulan[$g])){$bulan[$g]=0;}
+						echo $bulan[$a].",".$bulan[$b].",".$bulan[$c].",".$bulan[$d].",".$bulan[$e].",".$bulan[$f].",".$bulan[$g]
+						?>],
 						backgroundColor: [
 						'rgba(75, 192, 192, 0.2)',
 						'rgba(75, 192, 192, 0.2)',
@@ -393,7 +483,32 @@
 		<script  type="text/javascript">
 			var ctx = document.getElementById("linechart").getContext("2d");
 			var data = {
-						labels: ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],
+						labels: [<?php
+						$tgl = date("2020-12-19");
+						$tgl1 = date('Y-m-d', strtotime('-1 days', strtotime($tgl)));
+						$tgl2 = date('Y-m-d', strtotime('-2 days', strtotime($tgl)));
+						$tgl3 = date('Y-m-d', strtotime('-3 days', strtotime($tgl)));
+						$tgl4 = date('Y-m-d', strtotime('-4 days', strtotime($tgl)));
+						$tgl5 = date('Y-m-d', strtotime('-5 days', strtotime($tgl)));
+						$tgl6 = date('Y-m-d', strtotime('-6 days', strtotime($tgl)));
+						$tgl7 = date('Y-m-d', strtotime('-7 days', strtotime($tgl)));
+						$dt1 = new DateTime($tgl1);
+						$dt2 = new DateTime($tgl2);
+						$dt3 = new DateTime($tgl3);
+						$dt4 = new DateTime($tgl4);
+						$dt5 = new DateTime($tgl5);
+						$dt6 = new DateTime($tgl6);
+						$dt7 = new DateTime($tgl7);
+						$g = $dt1->format('d-M');
+						$f = $dt2->format('d-M');
+						$e = $dt3->format('d-M');
+						$d = $dt4->format('d-M');
+						$c = $dt5->format('d-M');
+						$b = $dt6->format('d-M');
+						$a = $dt7->format('d-M');
+						echo "'$a','$b','$c','$d','$e','$f','$g'";
+						?>
+						],
 						datasets: [
 							{
 								label: "Puas",
@@ -403,7 +518,38 @@
 								borderColor: "#29B0D0",
 								pointHoverBackgroundColor: "#29B0D0",
 								pointHoverBorderColor: "#29B0D0",
-								data: [21,12,33,64,15,26,47,48,59,60,51,92]
+								data: [<?php
+						$tgl = date("2020-12-19");
+						$tgl1 = date('Y-m-d', strtotime('-1 days', strtotime($tgl)));
+						$tgl2 = date('Y-m-d', strtotime('-2 days', strtotime($tgl)));
+						$tgl3 = date('Y-m-d', strtotime('-3 days', strtotime($tgl)));
+						$tgl4 = date('Y-m-d', strtotime('-4 days', strtotime($tgl)));
+						$tgl5 = date('Y-m-d', strtotime('-5 days', strtotime($tgl)));
+						$tgl6 = date('Y-m-d', strtotime('-6 days', strtotime($tgl)));
+						$tgl7 = date('Y-m-d', strtotime('-7 days', strtotime($tgl)));
+						$dt1 = new DateTime($tgl1);
+						$dt2 = new DateTime($tgl2);
+						$dt3 = new DateTime($tgl3);
+						$dt4 = new DateTime($tgl4);
+						$dt5 = new DateTime($tgl5);
+						$dt6 = new DateTime($tgl6);
+						$dt7 = new DateTime($tgl7);
+						$a = $dt7->format('Ymd');
+						if(empty($puas[$a])){$puas[$a]=0;}
+						$b = $dt6->format('Ymd');
+						if(empty($puas[$b])){$puas[$b]=0;}
+						$c = $dt5->format('Ymd');
+						if(empty($puas[$c])){$puas[$c]=0;}
+						$d = $dt4->format('Ymd');
+						if(empty($puas[$d])){$puas[$d]=0;}
+						$e = $dt3->format('Ymd');
+						if(empty($puas[$e])){$puas[$e]=0;}
+						$f = $dt2->format('Ymd');
+						if(empty($puas[$f])){$puas[$f]=0;}
+						$g = $dt1->format('Ymd');
+						if(empty($puas[$g])){$puas[$g]=0;}
+						echo $puas[$a].",".$puas[$b].",".$puas[$c].",".$puas[$d].",".$puas[$e].",".$puas[$f].",".$puas[$g]
+						?>]
 							},
 							{
 								label: "Tidak Puas",
@@ -413,7 +559,38 @@
 								borderColor: "#EE2127",
 								pointHoverBackgroundColor: "#EE2127",
 								pointHoverBorderColor: "#EE2127",
-								data: [1,2,3,4,5,6,7,8,9,10,11,12]
+								data: [<?php
+						$tgl = date("2020-12-19");
+						$tgl1 = date('Y-m-d', strtotime('-1 days', strtotime($tgl)));
+						$tgl2 = date('Y-m-d', strtotime('-2 days', strtotime($tgl)));
+						$tgl3 = date('Y-m-d', strtotime('-3 days', strtotime($tgl)));
+						$tgl4 = date('Y-m-d', strtotime('-4 days', strtotime($tgl)));
+						$tgl5 = date('Y-m-d', strtotime('-5 days', strtotime($tgl)));
+						$tgl6 = date('Y-m-d', strtotime('-6 days', strtotime($tgl)));
+						$tgl7 = date('Y-m-d', strtotime('-7 days', strtotime($tgl)));
+						$dt1 = new DateTime($tgl1);
+						$dt2 = new DateTime($tgl2);
+						$dt3 = new DateTime($tgl3);
+						$dt4 = new DateTime($tgl4);
+						$dt5 = new DateTime($tgl5);
+						$dt6 = new DateTime($tgl6);
+						$dt7 = new DateTime($tgl7);
+						$a = $dt7->format('Ymd');
+						if(empty($tpuas[$a])){$tpuas[$a]=0;}
+						$b = $dt6->format('Ymd');
+						if(empty($tpuas[$b])){$tpuas[$b]=0;}
+						$c = $dt5->format('Ymd');
+						if(empty($tpuas[$c])){$tpuas[$c]=0;}
+						$d = $dt4->format('Ymd');
+						if(empty($tpuas[$d])){$tpuas[$d]=0;}
+						$e = $dt3->format('Ymd');
+						if(empty($tpuas[$e])){$tpuas[$e]=0;}
+						$f = $dt2->format('Ymd');
+						if(empty($tpuas[$f])){$tpuas[$f]=0;}
+						$g = $dt1->format('Ymd');
+						if(empty($tpuas[$g])){$tpuas[$g]=0;}
+						echo $tpuas[$a].",".$tpuas[$b].",".$tpuas[$c].",".$tpuas[$d].",".$tpuas[$e].",".$tpuas[$f].",".$tpuas[$g]
+						?>]
 							}
 							]
 					};
@@ -448,10 +625,34 @@
 			function drawChart() {
 				var data = google.visualization.arrayToDataTable([
 				['Task', 'Hours per Day'],
-				['Web PLN',     11],
-				['PLN Mobile',      25],
-				['PLN 123',  2],
-				['Kantor Pelayanan', 2]
+				['Web PLN',     
+							<?php 
+							$b=0;
+							foreach($info1 as $row)
+							{$a=$row; $b=$b+$a;};
+							echo $b;
+							?>],
+				['PLN Mobile',      
+							<?php 
+							$b=0;
+							foreach($info2 as $row)
+							{$a=$row; $b=$b+$a;};
+							echo $b;
+							?>],
+				['PLN 123',     
+							<?php 
+							$b=0;
+							foreach($info3 as $row)
+							{$a=$row; $b=$b+$a;};
+							echo $b;
+							?>],
+				['Kantor Pelayanan',     
+							<?php 
+							$b=0;
+							foreach($info4 as $row)
+							{$a=$row; $b=$b+$a;};
+							echo $b;
+							?>]
 				]);
 
 				var options = {
@@ -471,7 +672,15 @@
 					labels: ["< 3 Hari"],
 					datasets: [{
 						label: '# of Votes',
-						data: [20,100-20],
+						data: [<?php 
+								$y=0; $b=0;
+								foreach($isi as $row)
+								{$x=$row; $y=$y+$x;}
+								
+								foreach($sambung1 as $row)
+								{$a=$row; $b=$b+$a;}; $c=$y-$b;
+								echo $b.",".$c;?>
+							],
 						text: "ff",
 						backgroundColor: [
 						
@@ -489,7 +698,14 @@
 					circumference: 1 * Math.PI,
 					title: {
 					display: true,
-					text: '20 %',
+					text: '<?php 
+								$y=0; $b=0;
+								foreach($isi as $row)
+								{$x=$row; $y=$y+$x;}
+								
+								foreach($sambung1 as $row)
+								{$a=$row; $b=$b+$a;}; $c=$b/$y*100; $d=number_format($c,2);
+								echo $d;?> %',
 					position: 'bottom'}
 				}
 			});
@@ -503,7 +719,14 @@
 					labels: ["4 Hari"],
 					datasets: [{
 						label: '# of Votes',
-						data: [32,100-32],
+						data: [<?php 
+								$y=0; $b=0;
+								foreach($isi as $row)
+								{$x=$row; $y=$y+$x;}
+								
+								foreach($sambung2 as $row)
+								{$a=$row; $b=$b+$a;}; $c=$y-$b;
+								echo $b.",".$c;?>],
 						text: "ff",
 						backgroundColor: [
 						
@@ -521,7 +744,14 @@
 					circumference: 1 * Math.PI,
 					title: {
 					display: true,
-					text: '32 %',
+					text: '<?php 
+								$y=0; $b=0;
+								foreach($isi as $row)
+								{$x=$row; $y=$y+$x;}
+								
+								foreach($sambung2 as $row)
+								{$a=$row; $b=$b+$a;}; $c=$b/$y*100; $d=number_format($c,2);
+								echo $d;?> %',
 					position: 'bottom'}
 				}
 			});
@@ -535,7 +765,14 @@
 					labels: ["5 Hari"],
 					datasets: [{
 						label: '# of Votes',
-						data: [10,100-10],
+						data: [<?php 
+								$y=0; $b=0;
+								foreach($isi as $row)
+								{$x=$row; $y=$y+$x;}
+								
+								foreach($sambung3 as $row)
+								{$a=$row; $b=$b+$a;}; $c=$y-$b;
+								echo $b.",".$c;?>],
 						text: "ff",
 						backgroundColor: [
 						
@@ -553,7 +790,14 @@
 					circumference: 1 * Math.PI,
 					title: {
 					display: true,
-					text: '10 %',
+					text: '<?php 
+								$y=0; $b=0;
+								foreach($isi as $row)
+								{$x=$row; $y=$y+$x;}
+								
+								foreach($sambung3 as $row)
+								{$a=$row; $b=$b+$a;}; $c=$b/$y*100; $d=number_format($c,2);
+								echo $d;?> %',
 					position: 'bottom'}
 				}
 			});
@@ -567,7 +811,14 @@
 					labels: ["> 5 Hari"],
 					datasets: [{
 						label: '# of Votes',
-						data: [38,100-38],
+						data: [<?php 
+								$y=0; $b=0;
+								foreach($isi as $row)
+								{$x=$row; $y=$y+$x;}
+								
+								foreach($sambung4 as $row)
+								{$a=$row; $b=$b+$a;}; $c=$y-$b;
+								echo $b.",".$c;?>],
 						text: "ff",
 						backgroundColor: [
 						
@@ -585,7 +836,14 @@
 					circumference: 1 * Math.PI,
 					title: {
 					display: true,
-					text: '38 %',
+					text: '<?php 
+								$y=0; $b=0;
+								foreach($isi as $row)
+								{$x=$row; $y=$y+$x;}
+								
+								foreach($sambung4 as $row)
+								{$a=$row; $b=$b+$a;}; $c=$b/$y*100; $d=number_format($c,2);
+								echo $d;?> %',
 					position: 'bottom'}
 				}
 			});
@@ -595,14 +853,65 @@
 			var myChart = new Chart(ctx, {
 				type: 'bar',
 				data: {
-					labels: ["Jan", "Feb", "Mar", "Apr","Mei","Jun","Jul","Agu","Sep","Okt","Nov","Des"],
+					labels: [<?php
+						$tgl = date("2020-12-19");
+						$tgl1 = date('Y-m-d', strtotime('-1 days', strtotime($tgl)));
+						$tgl2 = date('Y-m-d', strtotime('-2 days', strtotime($tgl)));
+						$tgl3 = date('Y-m-d', strtotime('-3 days', strtotime($tgl)));
+						$tgl4 = date('Y-m-d', strtotime('-4 days', strtotime($tgl)));
+						$tgl5 = date('Y-m-d', strtotime('-5 days', strtotime($tgl)));
+						$tgl6 = date('Y-m-d', strtotime('-6 days', strtotime($tgl)));
+						$tgl7 = date('Y-m-d', strtotime('-7 days', strtotime($tgl)));
+						$dt1 = new DateTime($tgl1);
+						$dt2 = new DateTime($tgl2);
+						$dt3 = new DateTime($tgl3);
+						$dt4 = new DateTime($tgl4);
+						$dt5 = new DateTime($tgl5);
+						$dt6 = new DateTime($tgl6);
+						$dt7 = new DateTime($tgl7);
+						$g = $dt1->format('d-M');
+						$f = $dt2->format('d-M');
+						$e = $dt3->format('d-M');
+						$d = $dt4->format('d-M');
+						$c = $dt5->format('d-M');
+						$b = $dt6->format('d-M');
+						$a = $dt7->format('d-M');
+						echo "'$a','$b','$c','$d','$e','$f','$g'";
+						?>],
 					datasets: [{
 						label: '',
-						data: [
-						14, 
-						42, 
-						3, 
-						24,5,16,7,8,9,10,11,12],
+						data: [<?php
+								$tgl = date("2020-12-19");
+								$tgl1 = date('Y-m-d', strtotime('-1 days', strtotime($tgl)));
+								$tgl2 = date('Y-m-d', strtotime('-2 days', strtotime($tgl)));
+								$tgl3 = date('Y-m-d', strtotime('-3 days', strtotime($tgl)));
+								$tgl4 = date('Y-m-d', strtotime('-4 days', strtotime($tgl)));
+								$tgl5 = date('Y-m-d', strtotime('-5 days', strtotime($tgl)));
+								$tgl6 = date('Y-m-d', strtotime('-6 days', strtotime($tgl)));
+								$tgl7 = date('Y-m-d', strtotime('-7 days', strtotime($tgl)));
+								$dt1 = new DateTime($tgl1);
+								$dt2 = new DateTime($tgl2);
+								$dt3 = new DateTime($tgl3);
+								$dt4 = new DateTime($tgl4);
+								$dt5 = new DateTime($tgl5);
+								$dt6 = new DateTime($tgl6);
+								$dt7 = new DateTime($tgl7);
+								$a = $dt7->format('Ymd');
+								if(empty($bayar[$a])){$bayar[$a]=0;}
+								$b = $dt6->format('Ymd');
+								if(empty($bayar[$b])){$bayar[$b]=0;}
+								$c = $dt5->format('Ymd');
+								if(empty($bayar[$c])){$bayar[$c]=0;}
+								$d = $dt4->format('Ymd');
+								if(empty($bayar[$d])){$bayar[$d]=0;}
+								$e = $dt3->format('Ymd');
+								if(empty($bayar[$e])){$bayar[$e]=0;}
+								$f = $dt2->format('Ymd');
+								if(empty($bayar[$f])){$bayar[$f]=0;}
+								$g = $dt1->format('Ymd');
+								if(empty($bayar[$g])){$bayar[$g]=0;}
+								echo $bayar[$a].",".$bayar[$b].",".$bayar[$c].",".$bayar[$d].",".$bayar[$e].",".$bayar[$f].",".$bayar[$g]
+								?>],
 						backgroundColor: [
 						'rgba(255, 99, 132, 0.2)',
 						'rgba(255, 99, 132, 0.2)',

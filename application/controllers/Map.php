@@ -3,7 +3,7 @@
 if (!defined('BASEPATH'))
     exit('No direct script access allowed');
 
-class Responden extends CI_Controller {
+class Map extends CI_Controller {
 
     /**
      * Index Page for this controller.
@@ -23,7 +23,7 @@ class Responden extends CI_Controller {
     public function __construct() {
         parent::__construct();
         // $this->load->library('My_PHPMailer');
-        $this->load->model('Responden_model');
+        //$this->load->model('Hasil_model');
     }
 
     public function init_page($page) {
@@ -93,53 +93,9 @@ class Responden extends CI_Controller {
         redirect('login');
     }
 
-    public function daftar_responden()
+    public function sebaranmap()
     {
-        // persiapkan curl
-        $ch = curl_init(); 
-
-        // set url 
-        curl_setopt($ch, CURLOPT_URL, "https://api-wa-auto-reply.coffeincode.my.id/api/coresponden");
-
-        // return the transfer as a string 
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1); 
-
-        // $output contains the output string 
-        $output = curl_exec($ch); 
-
-        // tutup curl 
-        curl_close($ch);
-        //return $output;
-
-        //$data = array();
-        $data_insert = array();
-        $lastrecord = $this->Responden_model->getNext();
-        $output = json_decode($output,TRUE);    
-        // echo "<pre>";
-        // print_r($output);
-        // echo "</pre>";
-        $respon = $output['content'];
-        foreach ($respon as $row){
-            foreach($lastrecord as $raw){
-            if($row['id']>$raw->id){
-                $data_insert = array(
-                    "mdn" => $row['mdn'],  
-                    "active_question_id" => $row['active_question_id'],
-                    "created_at" => $row['created_at'],
-                    "is_finished" => $row['is_finished'],
-                    "id" => $row['id'],
-                    "survey_id" => $row['survey_id'],
-                    "updated_at" => $row['updated_at']);
-                    $this->Responden_model->insert($data_insert);
-                }
-            }
-        }
-
-        $datarespon['responden'] = $this->Responden_model->getAll();
-        $this->load->view('responden/responden_view',$datarespon);
-        
+        $this->load->view('map/map_view');
     }
-}
 
-/* End of file welcome.php */
-/* Location: ./application/controllers/welcome.php */
+}
