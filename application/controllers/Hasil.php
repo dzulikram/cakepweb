@@ -23,7 +23,7 @@ class Hasil extends CI_Controller {
     public function __construct() {
         parent::__construct();
         // $this->load->library('My_PHPMailer');
-        $this->load->model('Hasil_model');
+        
     }
 
     public function init_page($page) {
