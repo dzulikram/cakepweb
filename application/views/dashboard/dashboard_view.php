@@ -83,6 +83,13 @@
 												</a>		
 											</li>
 											<li class="menu-item menu-item-submenu menu-item-rel" data-menu-toggle="click" aria-haspopup="true">
+												<a href="<?php echo base_url(); ?>question/daftar_question">
+													<span class="menu-text">Question</span>
+													<span class="menu-desc"></span>
+													<i class="menu-arrow"></i>
+												</a>		
+											</li>
+											<li class="menu-item menu-item-submenu menu-item-rel" data-menu-toggle="click" aria-haspopup="true">
 												<a href="<?php echo base_url(); ?>map/sebaranmap">
 													<span class="menu-text">Peta Sebaran</span>
 													<span class="menu-desc"></span>
@@ -104,19 +111,13 @@
 									<!--begin::Toggle-->
 									<div class="topbar-item" data-toggle="dropdown" data-offset="10px,0px">
 										<a href="<?php echo base_url(); ?>page/login">
-										<div class="btn btn-icon btn-hover-transparent-white btn-dropdown btn-lg mr-1 pulse pulse-primary">
-										<span class="svg-icon svg-icon-white svg-icon-2x"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
-												<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-													<rect x="0" y="0" width="24" height="24"/>
-													<path d="M7.62302337,5.30262097 C8.08508802,5.000107 8.70490146,5.12944838 9.00741543,5.59151303 C9.3099294,6.05357769 9.18058801,6.67339112 8.71852336,6.97590509 C7.03468892,8.07831239 6,9.95030239 6,12 C6,15.3137085 8.6862915,18 12,18 C15.3137085,18 18,15.3137085 18,12 C18,9.99549229 17.0108275,8.15969002 15.3875704,7.04698597 C14.9320347,6.73472706 14.8158858,6.11230651 15.1281448,5.65677076 C15.4404037,5.20123501 16.0628242,5.08508618 16.51836,5.39734508 C18.6800181,6.87911023 20,9.32886071 20,12 C20,16.418278 16.418278,20 12,20 C7.581722,20 4,16.418278 4,12 C4,9.26852332 5.38056879,6.77075716 7.62302337,5.30262097 Z" fill="#000000" fill-rule="nonzero"/>
-													<rect fill="#000000" opacity="0.3" x="11" y="3" width="2" height="10" rx="1"/>
-												</g>
-											</svg><!--end::Svg Icon-->
-										</span>
-										<span class="pulse-ring"></span>
+										<div class="btn btn-icon btn-hover-transparent-white btn-dropdown btn-lg mr-1 pulse pulse-primary">											
+											<span class="svg-icon svg-icon-white svg-icon-2x">
+												<img alt="Logo" src="<?php echo base_url(); ?>asset/assets/media/logos/usertrk.png" class="logo-default max-h-40px" />
+											</span>										
 										</div>
 										</a>
-										<span class="text-white opacity-90 font-weight-bolder font-size-base d-none d-md-inline mr-4">Logout</span>
+										<span class="text-white opacity-90 font-weight-bolder font-size-base d-none d-md-inline mr-4">PP_Tarakan</span>
 									</div>
 									<!--end::Dropdown-->
 								</div>
@@ -159,7 +160,7 @@
 																echo $y;
 																?>
 														</div>
-														<a href="#" class="text-inverse-primary font-weight-bold font-size-lg mt-1">Broadcast</a>
+														<a href="#" class="text-inverse-primary font-weight-bold font-size-lg mt-1">Pelanggan</a>
 													</div>
 												</div>
 												<!--end::Tiles Widget 11-->
@@ -258,7 +259,7 @@
 									<div class="col-xl-6">
 										<div class="card card-custom card-stretch gutter-b">
 											<div class="card-header border-0 pt-5">
-												<h3 class="card-title font-weight-bolder">Pengisian Survey Pelanggan 2020</h3>
+												<h3 class="card-title font-weight-bolder">Pengisian Survey</h3>
 											</div>
 											<div class="card-body">
 												<div style="width: 450px;margin: 0px auto;">
@@ -270,7 +271,7 @@
 									<div class="col-xl-6">
 										<div class="card card-custom card-stretch gutter-b">											
 											<div class="card-header border-0 pt-5">
-												<h3 class="card-title font-weight-bolder">Grafik Kepuasan Pelanggan 2020</h3>
+												<h3 class="card-title font-weight-bolder">Grafik Kepuasan Pelanggan</h3>
 											</div>
 											<div class="card-body">
 												<div style="width: 450px;margin: 0px auto;">
@@ -284,7 +285,7 @@
 								<div class="col-xl-12">
 										<div class="card card-custom card-stretch gutter-b">
 											<div class="card-header border-0 pt-5">
-												<h3 class="card-title font-weight-bolder">Respon Pelanggan Terhadap Durasi Penyambungan</h3>
+												<h3 class="card-title font-weight-bolder">Durasi lama Penyambungan</h3>
 											</div>
 											<div class="card-body">
 												<div class="row">
@@ -326,7 +327,7 @@
 									<div class="col-xl-8">
 										<div class="card card-custom card-stretch gutter-b">											
 											<div class="card-header border-0 pt-5">
-												<h3 class="card-title font-weight-bolder">Jumlah Pelanggan yang membayar di luar biaya terdaftar 2020</h3>
+												<h3 class="card-title font-weight-bolder">Apakah petugas meminta penambahan pembayaran?</h3>
 											</div>
 											<div class="card-body">
 												<div style="width: 550px;margin: 0px auto;">
@@ -379,7 +380,7 @@
 				type: 'bar',
 				data: {
 					labels: [<?php
-						$tgl = date("2020-12-19");
+						$tgl = date("Y-m-d");
 						$tgl1 = date('Y-m-d', strtotime('-1 days', strtotime($tgl)));
 						$tgl2 = date('Y-m-d', strtotime('-2 days', strtotime($tgl)));
 						$tgl3 = date('Y-m-d', strtotime('-3 days', strtotime($tgl)));
@@ -407,7 +408,7 @@
 					datasets: [{
 						label: '',
 						data: [<?php
-						$tgl = date("2020-12-19");
+						$tgl = date("Y-m-d");
 						$tgl1 = date('Y-m-d', strtotime('-1 days', strtotime($tgl)));
 						$tgl2 = date('Y-m-d', strtotime('-2 days', strtotime($tgl)));
 						$tgl3 = date('Y-m-d', strtotime('-3 days', strtotime($tgl)));
@@ -484,7 +485,7 @@
 			var ctx = document.getElementById("linechart").getContext("2d");
 			var data = {
 						labels: [<?php
-						$tgl = date("2020-12-19");
+						$tgl = date("Y-m-d");
 						$tgl1 = date('Y-m-d', strtotime('-1 days', strtotime($tgl)));
 						$tgl2 = date('Y-m-d', strtotime('-2 days', strtotime($tgl)));
 						$tgl3 = date('Y-m-d', strtotime('-3 days', strtotime($tgl)));
@@ -519,7 +520,7 @@
 								pointHoverBackgroundColor: "#29B0D0",
 								pointHoverBorderColor: "#29B0D0",
 								data: [<?php
-						$tgl = date("2020-12-19");
+						$tgl = date("Y-m-d");
 						$tgl1 = date('Y-m-d', strtotime('-1 days', strtotime($tgl)));
 						$tgl2 = date('Y-m-d', strtotime('-2 days', strtotime($tgl)));
 						$tgl3 = date('Y-m-d', strtotime('-3 days', strtotime($tgl)));
@@ -560,7 +561,7 @@
 								pointHoverBackgroundColor: "#EE2127",
 								pointHoverBorderColor: "#EE2127",
 								data: [<?php
-						$tgl = date("2020-12-19");
+						$tgl = date("Y-m-d");
 						$tgl1 = date('Y-m-d', strtotime('-1 days', strtotime($tgl)));
 						$tgl2 = date('Y-m-d', strtotime('-2 days', strtotime($tgl)));
 						$tgl3 = date('Y-m-d', strtotime('-3 days', strtotime($tgl)));
@@ -669,7 +670,7 @@
 			var myChart = new Chart(ctx, {
 				type: 'doughnut',
 				data: {
-					labels: ["< 3 Hari"],
+					labels: ["<=3 Hari"],
 					datasets: [{
 						label: '# of Votes',
 						data: [<?php 
@@ -854,7 +855,7 @@
 				type: 'bar',
 				data: {
 					labels: [<?php
-						$tgl = date("2020-12-19");
+						$tgl = date("Y-m-d");
 						$tgl1 = date('Y-m-d', strtotime('-1 days', strtotime($tgl)));
 						$tgl2 = date('Y-m-d', strtotime('-2 days', strtotime($tgl)));
 						$tgl3 = date('Y-m-d', strtotime('-3 days', strtotime($tgl)));
@@ -881,7 +882,7 @@
 					datasets: [{
 						label: '',
 						data: [<?php
-								$tgl = date("2020-12-19");
+								$tgl = date("Y-m-d");
 								$tgl1 = date('Y-m-d', strtotime('-1 days', strtotime($tgl)));
 								$tgl2 = date('Y-m-d', strtotime('-2 days', strtotime($tgl)));
 								$tgl3 = date('Y-m-d', strtotime('-3 days', strtotime($tgl)));

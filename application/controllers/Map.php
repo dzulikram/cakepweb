@@ -95,7 +95,103 @@ class Map extends CI_Controller {
 
     public function sebaranmap()
     {
-        $this->load->view('map/map_view');
+        // persiapkan curl
+        $ch = curl_init(); 
+
+        // set url
+        $apiKey = "G8hHOmJGYIgRFihsx7PiKHcl+Rdjbt8mnwdIM/7YFz3BOgd5oMcYLk5RsqwGMA==";
+        curl_setopt($ch, CURLOPT_HTTPHEADER, array(
+            'X-key: ' . $apiKey
+            )); 
+        curl_setopt($ch, CURLOPT_URL, "https://api-wa-auto-reply.coffeincode.my.id/api/coresponden-answer");
+
+        // return the transfer as a string 
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1); 
+
+        // $output contains the output string 
+        $output = curl_exec($ch); 
+
+        // tutup curl 
+        curl_close($ch);
+
+        $output = json_decode($output,TRUE);    
+ 
+        $data = array();
+        $jawaban = array();
+        $idpel = array();
+        $melakp = array();
+        $melaktp = array();
+        $sambojap = array();
+        $sambojatp = array();
+        $sangatap = array();
+        $sangatatp = array();
+        $kobap = array();
+        $kobatp = array();
+        $tarakanp = array();
+        $tarakantp = array();
+        $corespon = $output['content'];
+        $no=0;
+        foreach ($corespon as $row)
+        {
+        if($row['survey_id']==1 && $row['id']>=5740){
+            $no++;
+        
+            if($row['active_question_id']==6 && substr($row['id_pel'],0,5)=="23141" && $row['answer']=="A")
+            {
+                $melakp[$no]=$row;
+            } 
+            if($row['active_question_id']==6 && substr($row['id_pel'],0,5)=="23141" && $row['answer']=="B")
+            {
+                $melaktp[$no]=$row;
+            }
+            if($row['active_question_id']==6 && substr($row['id_pel'],0,5)=="23211" && $row['answer']=="A")
+            {
+                $sambojap[$no]=$row;
+            } 
+            if($row['active_question_id']==6 && substr($row['id_pel'],0,5)=="23211" && $row['answer']=="B")
+            {
+                $sambojatp[$no]=$row;
+            }   
+            if($row['active_question_id']==6 && substr($row['id_pel'],0,5)=="23420" && $row['answer']=="A")
+            {
+                $sangatap[$no]=$row;
+            } 
+            if($row['active_question_id']==6 && substr($row['id_pel'],0,5)=="23420" && $row['answer']=="B")
+            {
+                $sangatatp[$no]=$row;
+            }      
+            if($row['active_question_id']==6 && substr($row['id_pel'],0,5)=="23120" && $row['answer']=="A")
+            {
+                $kobap[$no]=$row;
+            } 
+            if($row['active_question_id']==6 && substr($row['id_pel'],0,5)=="23120" && $row['answer']=="B")
+            {
+                $kobatp[$no]=$row;
+            } 
+            if($row['active_question_id']==6 && $row['answer']=="A")
+            {
+                $tarakanp[$no]=$row;
+            } 
+            if($row['active_question_id']==6 && $row['answer']=="B")
+            {
+                $tarakantp[$no]=$row;
+            } 
+        }              
+        }     
+        
+        $data['melakp']=count($melakp);
+        $data['melaktp']=count($melaktp);
+        $data['sambojap']=count($sambojap);
+        $data['sambojatp']=count($sambojatp);
+        $data['sangatap']=count($sangatap);
+        $data['sangatatp']=count($sangatatp);
+        $data['kobap']=count($sangatap);
+        $data['kobatp']=count($sangatatp);
+        $data['tarakanp']=count($tarakanp);
+        $data['tarakantp']=count($tarakantp);
+        $this->load->view('map/map_view',$data);
+        //print_r($data);
+        
     }
 
 }

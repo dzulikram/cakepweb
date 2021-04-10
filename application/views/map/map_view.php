@@ -47,6 +47,7 @@
 			opacity: 0;
 			-webkit-transition: 1s;
 			transition: 1s;
+			pointer-events: all;
 			}
 
 			#provinceInfo.show {
@@ -189,6 +190,13 @@
 													<i class="menu-arrow"></i>
 												</a>		
 											</li>
+											<li class="menu-item menu-item-submenu menu-item-rel" data-menu-toggle="click" aria-haspopup="true">
+												<a href="<?php echo base_url(); ?>question/daftar_question">
+													<span class="menu-text">Question</span>
+													<span class="menu-desc"></span>
+													<i class="menu-arrow"></i>
+												</a>		
+											</li>
                                             <li class="menu-item menu-item-open menu-item-here menu-item-submenu menu-item-rel menu-item-open menu-item-here" data-menu-toggle="click" aria-haspopup="true">
 												<a href="<?php echo base_url(); ?>map/sebaranmap" class="menu-link menu-toggle">
 													<span class="menu-text">Peta Sebaran</span>
@@ -203,22 +211,16 @@
 							<!--begin::Topbar-->
 							<div class="topbar">								
 								<div class="dropdown">
-									<!--begin::Toggle-->
+									<!--begin::Toggle--> 
 									<div class="topbar-item" data-toggle="dropdown" data-offset="10px,0px">
 										<a href="<?php echo base_url(); ?>page/login">
-										<div class="btn btn-icon btn-hover-transparent-white btn-dropdown btn-lg mr-1 pulse pulse-primary">
-										<span class="svg-icon svg-icon-white svg-icon-2x"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
-												<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-													<rect x="0" y="0" width="24" height="24"/>
-													<path d="M7.62302337,5.30262097 C8.08508802,5.000107 8.70490146,5.12944838 9.00741543,5.59151303 C9.3099294,6.05357769 9.18058801,6.67339112 8.71852336,6.97590509 C7.03468892,8.07831239 6,9.95030239 6,12 C6,15.3137085 8.6862915,18 12,18 C15.3137085,18 18,15.3137085 18,12 C18,9.99549229 17.0108275,8.15969002 15.3875704,7.04698597 C14.9320347,6.73472706 14.8158858,6.11230651 15.1281448,5.65677076 C15.4404037,5.20123501 16.0628242,5.08508618 16.51836,5.39734508 C18.6800181,6.87911023 20,9.32886071 20,12 C20,16.418278 16.418278,20 12,20 C7.581722,20 4,16.418278 4,12 C4,9.26852332 5.38056879,6.77075716 7.62302337,5.30262097 Z" fill="#000000" fill-rule="nonzero"/>
-													<rect fill="#000000" opacity="0.3" x="11" y="3" width="2" height="10" rx="1"/>
-												</g>
-											</svg><!--end::Svg Icon-->
-										</span>
-										<span class="pulse-ring"></span>
+										<div class="btn btn-icon btn-hover-transparent-white btn-dropdown btn-lg mr-1 pulse pulse-primary">											
+											<span class="svg-icon svg-icon-white svg-icon-2x">
+												<img alt="Logo" src="<?php echo base_url(); ?>asset/assets/media/logos/usertrk.png" class="logo-default max-h-40px" />
+											</span>										
 										</div>
 										</a>
-										<span class="text-white opacity-90 font-weight-bolder font-size-base d-none d-md-inline mr-4">Logout</span>
+										<span class="text-white opacity-90 font-weight-bolder font-size-base d-none d-md-inline mr-4">PP_Tarakan</span>
 									</div>
 									<!--end::Dropdown-->
 								</div>
@@ -255,11 +257,10 @@
 															<title><p style="color:white">UP3 Tarakan</p></title>
 															<desc>
 																<image xlink:href="<?php echo base_url(); ?>asset/assets/media/bg/tarakan.png" alt="kantor pln"></image>
-																<p>Total Responden : </br>Pelanggan Puas : </br>Pelanggan Tidak Puas : </p>													
+																<p>Total Responden : <?php echo $tarakanp+$tarakantp; ?> </br>Pelanggan Puas : <?php echo $tarakanp; ?> </br>Pelanggan Tidak Puas : <?php echo $tarakantp; ?></br></br><a href="<?php echo base_url(); ?>page/dashboard_unit" class="btn btn-primary"><i class="fa fa-info-circle"></i>Detail</a> </p>													
 															</desc>
 															<path d="M14577 1961c-8,46 1,67 26,89 19,18 74,45 117,62 22,9 30,87 66,87 17,-97 79,-222 62,-301 -8,-35 -59,-19 -113,-55 -142,37 -79,16 -158,118z"/>
 															<path d="M15433 2416c-32,165 3,240 91,321 70,64 267,162 424,224 57,22 88,173 148,257l103 0c73,-342 271,-761 211,-1029 -23,-104 -147,-87 -295,-143l-331 0c-228,64 -121,70 -351,370z"/>
-
 														</g>
 
 														<g style='fill:#277393'>
@@ -292,11 +293,11 @@
 															<path d="M15295 4046c-38,-38 -77,-74 -118,-110 -40,-35 -81,-70 -120,-107 -117,-112 -187,-232 -251,-381 -24,-57 -60,-134 -102,-180 -20,-22 -39,-29 -59,-48 -38,-33 -44,-87 -48,-134 -5,-55 -9,-112 -17,-167 -3,-22 -7,-45 -16,-66 -9,-19 -21,-38 -32,-56 -16,-27 -32,-55 -47,-82 -13,1 -27,3 -41,4 -140,15 -236,-27 -352,-104l-91 -61 190 -64c-3,-10 -5,-18 -7,-20 -5,-6 -27,-20 -39,-28 -203,-88 -472,-125 -692,-126 -245,0 -496,-68 -739,-100l-47 9c30,112 136,158 116,300 -3,19 -17,50 -25,69 -14,34 -29,68 -44,102 -16,35 -32,70 -48,104 -7,17 -20,46 -30,61 -51,69 -230,170 -307,214 -92,53 -188,103 -279,158 -37,22 -82,50 -109,86 -27,36 -49,94 -67,135 -50,111 -107,216 -168,321 -38,65 -79,134 -110,203 -9,17 -14,38 -22,54 -11,21 -37,46 -53,63 -56,59 -111,120 -165,181 40,61 100,122 147,173 31,34 62,68 90,105l304 -141c49,-52 85,-75 154,-96 21,-6 34,-12 51,-26 30,-25 28,-54 45,-87 34,-64 106,-76 171,-81 42,-3 77,-1 116,14 43,17 67,30 115,39 96,18 214,15 315,11l89 -128 35 7c44,9 85,21 128,33 9,2 36,10 45,8 21,-5 84,-105 95,-122 81,-122 192,-194 327,-248 105,-41 239,-120 353,-108 150,16 239,173 297,300 89,11 183,24 269,48 50,14 92,31 139,52 48,23 89,36 138,46 24,-38 44,-78 79,-108 54,-46 121,-47 188,-33 46,9 82,27 112,63 15,18 27,38 44,54 18,18 42,30 65,40 8,-5 16,-10 18,-13 2,-4 6,-18 10,-32z"/>
 														</g>
 
-														<g style='fill:#277393'>
+														<g style='fill:#277393'>									
 															<title><p style="color:white">ULP Tj Redeb - UP3 Berau</p></title>
 															<desc>
 																<image xlink:href="<?php echo base_url(); ?>asset/assets/media/bg/redeb.png" alt="kantor pln"></image>
-																<p>Total Responden : </br>Pelanggan Puas : </br>Pelanggan Tidak Puas : </p>														
+																<p>Total Responden : 90</br>Pelanggan Puas : 72</br>Pelanggan Tidak Puas : 18</br></br><a href="<?php echo base_url(); ?>page/dashboard_unit" class="btn btn-primary"><i class="fa fa-info-circle"></i>Detail</a> </p>																															
 															</desc>
 															<path d="M11923 4462c8,21 -23,281 -77,358l-26 30c-48,51 -40,-6 -63,104l111 26c94,-23 93,-36 182,5 2,113 -72,264 232,231 180,336 238,189 302,159 178,-83 209,28 305,50 48,12 154,4 214,8 36,52 102,108 109,147 18,103 -192,307 559,263 40,-57 76,-94 107,-186 18,-52 50,-187 71,-229 177,3 113,110 295,147l69 -178 165 -3c48,-51 25,-44 53,-116 80,91 157,11 247,125 170,219 88,61 213,197 -25,117 -91,109 -120,253l218 222c78,77 120,50 165,55 83,8 67,26 155,54 52,-113 63,-121 73,-269 2,72 29,98 100,125 378,141 408,-226 584,39 193,290 198,139 292,197 81,50 21,82 162,105 69,12 193,-2 263,-14 -74,-119 -140,-25 -271,-174 -114,-130 -90,-158 -254,-225 -185,-77 -65,-127 -249,-226 -207,-111 -61,84 -292,-184 -109,-126 -193,-92 -303,-173l-267 -210c-157,-154 -45,-112 -279,-198 -145,-53 -152,-158 -134,-330 43,-34 100,-72 142,-107 9,-183 -30,-50 -31,-169 215,-15 279,1 321,-216 -172,-59 -115,-139 -238,-164 -158,-33 -167,62 -232,148 -253,-45 -146,-103 -607,-155 -190,-438 -341,-292 -593,-192 -139,55 -234,123 -302,227 -135,206 -112,146 -324,104l-84 120c-508,26 -410,-74 -571,-62 -179,13 -102,85 -185,155 -71,60 -107,14 -207,126z"/>
 														</g>
@@ -323,7 +324,7 @@
 															<title><p style="color:white">ULP Melak - UP3 Smd</p></title>
 															<desc>
 																<image xlink:href="<?php echo base_url(); ?>asset/assets/media/bg/melak.png" alt="kantor pln"></image>
-																<p>Total Responden : </br>Pelanggan Puas : </br>Pelanggan Tidak Puas : </p>														
+																<p>Total Responden : <?php echo $melakp+$melaktp; ?></br>Pelanggan Puas : <?php echo $melakp; ?></br>Pelanggan Tidak Puas : <?php echo $melaktp; ?></p>														
 															</desc>
 															  <path d="M11241 10146c16,-6 33,-9 49,-12 38,-7 71,-7 109,-11 103,-10 126,-26 231,12 63,24 95,51 164,28 29,-9 59,-14 89,-18 23,-3 75,-8 94,-21 49,-34 48,-92 92,-137 46,-45 137,-66 199,-83 64,-18 59,-40 80,-94 5,-13 12,-25 21,-36 20,-25 47,-41 74,-56 10,-6 22,-12 33,-19 -6,-71 1,-83 29,-162 12,-35 15,-66 43,-95 7,-6 42,-29 43,-32 0,0 1,-1 1,-2 -5,-8 -12,-17 -16,-26 -10,-21 -12,-37 -18,-58 -1,-4 -2,-8 -4,-11 -1,-2 -3,-4 -5,-5 -11,-4 -31,-5 -42,-6 -29,-3 -56,-8 -82,-24l-13 -9 -19 -43c-4,-9 -9,-13 -14,-22 -15,-23 -17,-49 -18,-76 -1,-40 -13,-76 -20,-114 -3,-16 -5,-32 -6,-48 -1,-4 -1,-12 -3,-16 -1,-3 -12,-15 -14,-18 -18,-19 -28,-35 -35,-58l-1 0 -20 -9c-25,-12 -44,-30 -54,-55 -15,9 -32,16 -52,19 -47,9 -110,24 -154,-1 -18,-11 -33,-26 -52,-37 -55,-33 -85,-67 -130,-110 -13,-12 -44,-28 -60,-37 -25,-14 -58,-31 -80,-50 -21,-18 -50,-45 -78,-54 -21,-7 -37,-17 -55,-31 -77,-57 -61,-128 -27,-201 1,-1 1,-2 1,-3 2,-8 3,-14 6,-22 12,-34 34,-47 56,-72 11,-13 10,-20 2,-37 -2,-3 -4,-8 -7,-10 -27,-23 -39,-38 -58,-68 -9,-15 -24,-23 -36,-35 -22,-23 -31,-49 -32,-80 -1,-1 -1,-1 -1,-2 -2,1 -4,2 -6,3 -19,7 -40,14 -60,20 -19,6 -45,16 -65,19 -22,4 -44,1 -63,-10 -39,-24 -46,-64 -63,-102 -1,-2 -52,-26 -101,-48 1,-5 2,-8 3,-11 4,-7 -9,-30 -5,-37 -17,-30 -23,-60 -4,-94 11,-20 27,-34 46,-45 5,-3 13,-6 19,-10 0,-10 -4,-30 -6,-38 0,-1 -1,-3 -1,-4 -5,-3 -15,-8 -19,-10 -46,-22 -154,-107 -181,-150 -13,-20 -22,-41 -21,-66 0,-14 5,-28 5,-42 0,-1 0,-2 0,-3 -5,-1 -13,-3 -17,-4 -19,-4 -37,-8 -56,-15 -60,-22 -104,-63 -137,-117 -10,-16 -14,-29 -20,-47 -1,-5 -3,-9 -7,-13 -2,-4 -6,-6 -10,-8 -28,-14 -47,-20 -70,-45 -35,-37 -48,-91 -56,-141 -12,-87 2,-120 57,-166 -2,-21 -7,-38 4,-66 8,-22 19,-43 27,-64 4,-12 3,-68 2,-105 -39,-24 -79,-53 -109,-85l-17 -17 2 -24c1,-10 2,-18 5,-27 -9,-14 -12,-30 -11,-47 0,-17 4,-32 12,-47 3,-6 9,-15 12,-21 -3,-6 -6,-12 -9,-20 -1,-3 -2,-7 -3,-11 -5,1 -9,0 -14,0 -11,0 -24,-3 -36,-6 -36,63 -86,87 -172,65 -13,-3 -24,-2 -37,-2 -24,-1 -45,-7 -66,-20 -20,-11 -33,-15 -56,-10 -54,10 -61,64 -112,89 -64,30 -170,0 -226,-39l-19 -14 -3 -24c-2,-18 -5,-69 -12,-89 -15,-13 -51,-21 -67,-16 -8,2 -22,10 -30,14 -65,31 -123,15 -152,-56l-9 -21c-5,-6 -8,-13 -11,-22 -5,-14 -7,-27 -6,-39 -8,-5 -17,-10 -22,-14 -17,-12 -30,-27 -45,-40 -4,-4 -17,-15 -22,-16 0,0 0,0 -1,0 -33,0 -47,2 -81,-10 -49,-17 -69,-42 -105,-75 -14,-12 -26,-27 -38,-41 -1,-2 -3,-4 -4,-5 -4,3 -9,7 -16,11l-16 10 -19 -2c-19,-2 -35,-6 -51,-17 -5,-4 -7,-7 -12,-9 -25,-12 -34,-11 -57,-34 -6,-6 -15,-16 -22,-22 -19,-6 -32,-10 -50,-19 -32,-17 -56,-27 -82,-48 -4,7 -10,13 -19,20 -13,11 -27,17 -43,21 -12,3 -57,4 -62,6 -9,8 -16,17 -25,24 -21,17 -60,25 -85,31 -4,2 -7,4 -10,8 -18,20 -27,36 -53,51 -23,13 -48,18 -71,26l-3 120c10,19 10,36 9,59l0 16 -9 12c-8,12 -26,27 -33,36 1,4 3,10 3,13 4,15 7,29 7,43 0,49 -27,86 -65,114 -22,17 -47,27 -76,23 -6,-1 -12,-2 -18,-4 -23,17 -49,32 -80,30 -13,-1 -23,-5 -36,-8 -8,-1 -15,-2 -23,-2 -19,19 -23,20 -41,57 -13,30 -32,58 -62,73 -1,0 -1,0 -2,1 4,6 8,14 11,24 14,48 -5,99 -28,140 -9,16 -19,26 -28,37 10,14 34,37 43,52 43,73 41,115 -14,178 -4,4 -6,9 -8,14 -2,9 -3,19 -5,29 -5,41 -14,74 -39,102 16,-1 36,-4 48,-6 31,-6 65,-13 98,-10 2,-2 4,-3 6,-4 20,-12 30,-14 53,-16 2,0 3,0 5,-1 0,0 0,0 0,0 1,-1 2,-2 3,-3 20,-23 41,-33 71,-38 73,-12 142,16 192,70 34,37 70,103 50,155l-3 8 -5 6c15,13 27,29 33,49 34,12 166,-44 252,-2 11,5 19,10 25,15l0 -5 26 -16c33,-18 28,-51 82,-66 22,-6 44,-7 66,-6 3,1 7,1 11,1 -2,-27 10,-49 29,-68 16,-15 34,-25 55,-28 20,-4 35,-1 50,1 6,-6 14,-11 23,-17 9,-5 18,-8 27,-10 1,-1 2,-2 3,-3 5,-4 12,-10 17,-16 6,-13 10,-23 18,-36 18,-32 23,-29 49,-43 3,-2 7,-7 9,-9 31,-32 68,-53 112,-28 2,1 4,2 6,4 16,-15 34,-24 57,-25 11,-1 22,3 33,2 21,-13 26,-22 57,-28 22,-5 44,-3 64,7 10,-8 20,-16 31,-22 5,-2 9,-5 14,-7 1,-5 3,-9 5,-14l12 -31 33 -3c47,-4 74,12 107,42 87,78 105,88 125,212 8,50 26,94 40,143 9,31 52,64 72,91 20,26 35,27 49,66 5,13 7,24 10,37 3,4 7,9 10,12 115,127 61,223 -53,318 -30,25 -62,52 -103,53 -28,0 -51,-11 -70,-28l-51 14c-30,8 -60,13 -84,-2 -2,5 -4,12 -5,15 -10,29 -19,49 -45,64 -1,2 -3,4 -3,6 -13,22 -24,36 -41,54 -9,10 -13,18 -19,31 -8,18 -15,27 -25,42 -1,1 -2,2 -2,3 0,1 -1,2 -1,2 -4,26 -8,42 -23,64 -1,2 -3,5 -4,8 5,0 11,1 14,2 17,3 28,10 45,13 52,8 61,26 100,52l24 16 0 29c0,19 -2,37 -9,54 3,7 5,15 6,24 4,17 5,33 8,50 3,17 21,51 29,66 20,38 30,72 14,113 -1,2 -2,3 -2,5 0,3 1,6 2,10 0,0 1,0 1,-1 19,-5 36,-3 54,3 10,4 16,8 25,12 4,0 9,-1 12,-2 11,-3 17,-8 25,-15 33,-29 59,-42 103,-46 5,0 15,-2 21,-4 3,-4 5,-10 7,-14 7,-15 15,-28 26,-41 40,-47 91,-70 149,-68 21,-16 45,-28 66,-44 23,-16 48,-26 77,-22 11,2 20,5 29,8 9,-20 5,72 25,63l69 -82c42,19 57,51 2,108l-6 6 -20 10c2,9 4,17 6,25 5,17 11,31 10,49 -1,22 -10,39 -23,56 -12,17 -28,30 -43,43 -5,3 -17,13 -19,16 -7,24 -5,43 -17,69 -6,13 -13,25 -22,36 -1,1 -2,3 -3,4 4,6 7,12 11,20 10,26 10,54 6,81l-4 23 -35 24c0,22 3,50 11,60 18,20 29,43 31,70 3,28 -4,51 -8,75 13,12 19,18 45,32 53,30 51,70 64,120 0,2 2,7 3,8 4,4 16,9 21,12 15,11 27,24 35,41 10,23 11,96 15,127l21 109c7,41 -1,82 5,120 1,7 6,31 11,36 6,3 92,6 106,8 68,9 150,88 178,149 4,7 15,31 21,36 13,6 24,9 36,17 25,14 45,35 63,57 5,5 27,14 35,19 24,15 38,38 44,66 3,13 4,24 5,35 4,2 7,3 10,4 26,11 42,24 58,46 5,6 7,10 13,13 24,11 48,22 62,45z"/>
 														</g>
@@ -457,50 +458,61 @@
 															<path d="M14326 11488c16,69 24,72 24,165 41,20 76,28 118,47l0 237c0,22 -28,74 -14,101l209 0c163,-33 304,-111 422,-216l62 -56c54,-57 35,-20 54,-89 -251,-21 -255,-44 -427,-164 -126,-88 -21,-65 -234,-76 -137,-7 -92,-14 -214,51z"/>
 														</g>
 														<!-- Tarakan -->
-														<text x="15600" y="2500" fill="white" font-size="250">95,21%</text>
+														<text x="15600" y="2500" fill="white" font-size="250"><?php if(!empty($tarakanp) || !empty($tarakantp)){ echo number_format($tarakanp/($tarakanp+$tarakantp)*100,2);} else {echo "0";} ?> %</text>
 														<!-- Nunukan -->
-														<text x="12300" y="1200" fill="white" font-size="250">80,23%</text>
+														<text x="12300" y="1200" fill="white" font-size="250"><?php if(!empty($melakp) || !empty($melaktp)){ echo number_format($melakp/($melakp+$melaktp)*100,2);} else {echo "0";} ?> %</text>
 														<!-- Malinau -->
-														<text x="10300" y="4200" fill="white" font-size="250">90,11%</text>
+														<text x="10300" y="4200" fill="white" font-size="250"><?php if(!empty($melakp) || !empty($melaktp)){ echo number_format($melakp/($melakp+$melaktp)*100,2);} else {echo "0";} ?> %</text>
 														<!-- Tj Selor -->
-														<text x="13300" y="3200" fill="white" font-size="250">95,21%</text>
+														<text x="13300" y="3200" fill="white" font-size="250"><?php if(!empty($melakp) || !empty($melaktp)){ echo number_format($melakp/($melakp+$melaktp)*100,2);} else {echo "0";} ?> %</text>
 														<!-- Tj Redeb -->
-														<text x="13000" y="4700" fill="white" font-size="250">95,21%</text>
+														<text x="13000" y="4700" fill="white" font-size="250"><?php if(!empty($melakp) || !empty($melaktp)){ echo number_format($melakp/($melakp+$melaktp)*100,2);} else {echo "0";} ?> %</text>
 														<!-- Sangatta -->
-														<text x="12500" y="6700" fill="white" font-size="250">95,21%</text>
+														<text x="12500" y="6700" fill="white" font-size="250"><?php if(!empty($sangatap) || !empty($sangatatp)){ echo number_format($sangatap/($sangatap+$sangatatp)*100,2);} else {echo "0";} ?>  %</text>
 														<!-- Bontang Kota -->
-														<text x="13600" y="7400" fill="white" font-size="250">95,21%</text>
+														<text x="13600" y="7400" fill="white" font-size="250"><?php if(!empty($melakp) || !empty($melaktp)){ echo number_format($melakp/($melakp+$melaktp)*100,2);} else {echo "0";} ?> %</text>
 														<!-- Kota Bangun -->
-														<text x="11100" y="7400" fill="white" font-size="250">85,99%</text>
+														<text x="11100" y="7400" fill="white" font-size="250"><?php if(!empty($melakp) || !empty($melaktp)){ echo number_format($melakp/($melakp+$melaktp)*100,2);} else {echo "0";} ?> %</text>
 														<!-- Melak -->
-														<text x="8800" y="6700" fill="white" font-size="250">95,21%</text>
+														<text x="8800" y="6700" fill="white" font-size="250"><?php if(!empty($melakp) || !empty($melaktp)){ echo number_format($melakp/($melakp+$melaktp)*100,2);} else {echo "0";} ?> %</text>
 														<!-- Tenggarong -->
-														<text x="13100" y="8340" fill="white" font-size="250">95,21%</text>
+														<text x="13100" y="8340" fill="white" font-size="250"><?php if(!empty($melakp) || !empty($melaktp)){ echo number_format($melakp/($melakp+$melaktp)*100,2);} else {echo "0";} ?> %</text>
 														<!-- Ilir -->
-														<text transform="rotate(315)" font-size="250" x="5480" y="18000" fill="white">91,21%</text>
+														<text transform="rotate(315)" font-size="250" x="5480" y="18000" fill="white"><?php if(!empty($melakp) || !empty($melaktp)){ echo number_format($melakp/($melakp+$melaktp)*100,2);} else {echo "0";} ?> %</text>
 														<!-- Ulu -->
-														<text transform="rotate(315)" font-size="250" x="5400" y="17100" fill="white">95,21%</text>
+														<text transform="rotate(315)" font-size="250" x="5400" y="17100" fill="white"><?php if(!empty($melakp) || !empty($melaktp)){ echo number_format($melakp/($melakp+$melaktp)*100,2);} else {echo "0";} ?> %</text>
 														<!-- Kota -->
-														<text transform="rotate(315)" font-size="250" x="5480" y="17600" fill="white">95,21%</text>
+														<text transform="rotate(315)" font-size="250" x="5480" y="17600" fill="white"><?php if(!empty($melakp) || !empty($melaktp)){ echo number_format($melakp/($melakp+$melaktp)*100,2);} else {echo "0";} ?> %</text>
 														<!-- Seberang -->
-														<text transform="rotate(315)" font-size="250" x="4000" y="17500" fill="white">95,21%</text>
+														<text transform="rotate(315)" font-size="250" x="4000" y="17500" fill="white"><?php if(!empty($melakp) || !empty($melaktp)){ echo number_format($melakp/($melakp+$melaktp)*100,2);} else {echo "0";} ?> %</text>
 														<!-- Longikis -->
-														<text x="11300" y="11000" fill="white" font-size="250">97,99%</text>
+														<text x="11300" y="11000" fill="white" font-size="250"><?php if(!empty($melakp) || !empty($melaktp)){ echo number_format($melakp/($melakp+$melaktp)*100,2);} else {echo "0";} ?> %</text>
 														<!-- Grogot -->
-														<text x="11300" y="11900" fill="white" font-size="250">97,99%</text>
+														<text x="11300" y="11900" fill="white" font-size="250"><?php if(!empty($melakp) || !empty($melaktp)){ echo number_format($melakp/($melakp+$melaktp)*100,2);} else {echo "0";} ?> %</text>
 														<!-- Petung -->
-														<text x="12300" y="10500" fill="white" font-size="250">97,99%</text>
+														<text x="12300" y="10500" fill="white" font-size="250"><?php if(!empty($melakp) || !empty($melaktp)){ echo number_format($melakp/($melakp+$melaktp)*100,2);} else {echo "0";} ?> %</text>
 														<!-- Samboja -->
-														<text x="15000" y="10800" fill="white" font-size="250">100%</text>
+														<text x="15000" y="10800" fill="white" font-size="250"><?php if(!empty($melakp) || !empty($melaktp)){ echo number_format($melakp/($melakp+$melaktp)*100,2);} else {echo "0";} ?> %</text>
 														<!-- RBU -->
-														<text x="14400" y="11300" fill="white" font-size="250">97,99%</text>
+														<text x="14400" y="11300" fill="white" font-size="250"><?php if(!empty($melakp) || !empty($melaktp)){ echo number_format($melakp/($melakp+$melaktp)*100,2);} else {echo "0";} ?> %</text>
 														<!-- RBS -->
-														<text x="14500" y="11810" fill="white" font-size="250">97,99%</text>
+														<text x="14500" y="11810" fill="white" font-size="250"><?php if(!empty($melakp) || !empty($melaktp)){ echo number_format($melakp/($melakp+$melaktp)*100,2);} else {echo "0";} ?> %</text>
+
+														<rect x="3800" y="12700" width="300" height="200" style="fill:#F88379" />
+														<text x="4300" y="12900" fill="grey" font-size="350">UP3 Tarakan</text>
+														<rect x="3800" y="11700" width="300" height="200" style="fill:#277393" />
+														<text x="4300" y="11900" fill="grey" font-size="350">UP3 Berau</text>
+														<rect x="3800" y="10700" width="300" height="200" style="fill:#F7AC72" />
+														<text x="4300" y="10900" fill="grey" font-size="350">UP3 Bontang</text>
+														<rect x="3800" y="9700" width="300" height="200" style="fill:#E24A32" />
+														<text x="4300" y="9900" fill="grey" font-size="350">UP3 Samarinda</text>
+														<rect x="3800" y="8700" width="300" height="200" style="fill:#8CB1AA" />
+														<text x="4300" y="8900" fill="grey" font-size="350">UP3 Balikpapan</text>
 													</svg>
-													<div id="provinceInfo"></div>   
+													<div id="provinceInfo"></div>
 																		
 													</div>
-												</div>
+												</div>												
 											</div>
 										</div>
 									</div>

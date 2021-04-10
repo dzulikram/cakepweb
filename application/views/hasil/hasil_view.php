@@ -15,7 +15,7 @@
 		<script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
 
 		<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/jszip-2.5.0/dt-1.10.16/b-1.5.1/b-colvis-1.5.1/b-html5-1.5.1/b-print-1.5.1/fh-3.1.3/datatables.min.css"/>
-		
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.32/pdfmake.min.js"></script>
 		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.32/vfs_fonts.js"></script>
 		<script type="text/javascript" src="https://cdn.datatables.net/v/dt/jszip-2.5.0/dt-1.10.16/b-1.5.1/b-colvis-1.5.1/b-html5-1.5.1/b-print-1.5.1/fh-3.1.3/datatables.min.js"></script>
@@ -29,7 +29,7 @@
 						'excelHtml5',
 						'pdfHtml5'
 					],
-				pageLength: 20,
+				pageLength: 10,
 				fixedHeader: true
 			});
 			} );
@@ -93,6 +93,13 @@
 												</a>		
 											</li>
 											<li class="menu-item menu-item-submenu menu-item-rel" data-menu-toggle="click" aria-haspopup="true">
+												<a href="<?php echo base_url(); ?>question/daftar_question">
+													<span class="menu-text">Question</span>
+													<span class="menu-desc"></span>
+													<i class="menu-arrow"></i>
+												</a>		
+											</li>
+											<li class="menu-item menu-item-submenu menu-item-rel" data-menu-toggle="click" aria-haspopup="true">
 												<a href="<?php echo base_url(); ?>map/sebaranmap">
 													<span class="menu-text">Peta Sebaran</span>
 													<span class="menu-desc"></span>
@@ -114,19 +121,13 @@
 									<!--begin::Toggle-->
 									<div class="topbar-item" data-toggle="dropdown" data-offset="10px,0px">
 										<a href="<?php echo base_url(); ?>page/login">
-										<div class="btn btn-icon btn-hover-transparent-white btn-dropdown btn-lg mr-1 pulse pulse-primary">
-										<span class="svg-icon svg-icon-white svg-icon-2x"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
-												<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-													<rect x="0" y="0" width="24" height="24"/>
-													<path d="M7.62302337,5.30262097 C8.08508802,5.000107 8.70490146,5.12944838 9.00741543,5.59151303 C9.3099294,6.05357769 9.18058801,6.67339112 8.71852336,6.97590509 C7.03468892,8.07831239 6,9.95030239 6,12 C6,15.3137085 8.6862915,18 12,18 C15.3137085,18 18,15.3137085 18,12 C18,9.99549229 17.0108275,8.15969002 15.3875704,7.04698597 C14.9320347,6.73472706 14.8158858,6.11230651 15.1281448,5.65677076 C15.4404037,5.20123501 16.0628242,5.08508618 16.51836,5.39734508 C18.6800181,6.87911023 20,9.32886071 20,12 C20,16.418278 16.418278,20 12,20 C7.581722,20 4,16.418278 4,12 C4,9.26852332 5.38056879,6.77075716 7.62302337,5.30262097 Z" fill="#000000" fill-rule="nonzero"/>
-													<rect fill="#000000" opacity="0.3" x="11" y="3" width="2" height="10" rx="1"/>
-												</g>
-											</svg><!--end::Svg Icon-->
-										</span>
-										<span class="pulse-ring"></span>
+										<div class="btn btn-icon btn-hover-transparent-white btn-dropdown btn-lg mr-1 pulse pulse-primary">											
+											<span class="svg-icon svg-icon-white svg-icon-2x">
+												<img alt="Logo" src="<?php echo base_url(); ?>asset/assets/media/logos/usertrk.png" class="logo-default max-h-40px" />
+											</span>										
 										</div>
 										</a>
-										<span class="text-white opacity-90 font-weight-bolder font-size-base d-none d-md-inline mr-4">Logout</span>
+										<span class="text-white opacity-90 font-weight-bolder font-size-base d-none d-md-inline mr-4">PP_Tarakan</span>
 									</div>
 									<!--end::Dropdown-->
 								</div>
@@ -152,6 +153,7 @@
 													<div class="card-title">
 														<h3 class="card-label">Data Responden
 														<span class="text-muted pt-2 font-size-sm d-block">Pelanggan PT. PLN (Persero) UIW Kaltimra</span></h3>
+														<a href="<?php echo base_url(); ?>hasil/broadcast" class="btn btn-success">Kirim Survey</a>
 													</div>
 													
                                                     <div class="box">
@@ -159,15 +161,17 @@
 															<table id="example" width="100%">
                                                                 <thead>
                                                                     <tr>
-                                                                        <th width="1%">NO</th>
-                                                                        <th width="19%">NO WHATSAPP</th>
-																		<th width="19%">TANGGAL ISI</th>
-																		<th width="19%">ID PEL</th>
-                                                                        <th width="20%">BERSEDIA MENGISI SURVEY</th>
-                                                                        <th width="20%">SUMBER MEDIA INFORMASI LAYANAN PLN</th>
-                                                                        <th width="20%">LAMA PENYAMBUNGAN</th>
-                                                                        <th width="20%">PERMINTAAN BIAYA TAMBAHAN</th>
-                                                                        <th width="20%">TINGKAT KEPUASAN</th>
+                                                                        <th>NO</th>
+                                                                        <th>NO WHATSAPP</th>
+																		<th>TANGGAL ISI</th>
+																		<th>LOKASI</th>
+                                                                        <th>BERSEDIA MENGISI SURVEY</th>
+                                                                        <th>SUMBER MEDIA INFORMASI LAYANAN PLN</th>
+                                                                        <th>LAMA PENYAMBUNGAN</th>
+                                                                        <th>PERMINTAAN BIAYA TAMBAHAN</th>
+                                                                        <th>TINGKAT KEPUASAN</th>
+																		<th>CALLBACK</th>
+																		<th>KET</th>
                                                                     </tr>
                                                                 </thead>
                                                                 <tbody>
@@ -186,7 +190,8 @@
 																				<td><?php if(!empty($jawaban[$row]['4'])){if($jawaban[$row]['4']=='A'){echo "<3 Hari Kerja";}elseif($jawaban[$row]['4']=='B'){echo "4 Hari Kerja";}elseif($jawaban[$row]['4']=='C'){echo "5 Hari Kerja";}elseif($jawaban[$row]['4']=='D'){echo ">5 Hari Kerja";}} ?></td>
 																				<td><?php if(!empty($jawaban[$row]['5'])){if($jawaban[$row]['5']=='A'){echo "Ada";}elseif($jawaban[$row]['5']=='B'){echo "Tidak";}} ?></td>
 																				<td><?php if(!empty($jawaban[$row]['6'])){if($jawaban[$row]['6']=='A'){echo "Puas";}elseif($jawaban[$row]['6']=='B'){echo "Tidak Puas";}} ?></td>
-																				
+																				<td><a href="https://wa.me/<?php echo $row; ?>?text=Salam%20Hangat%20Pelanggan%20PLN%20yang%20kami%20hormati" class="btn btn-success"><i class="fa fa-whatsapp"></i></a></td>
+																				<td>-</td>
 																			</tr>
 																			<?php
 																		}
@@ -196,8 +201,7 @@
                                                         </div>
 													</div>
 												</div>
-											</div>    
-											
+											</div>    											
 									</div>
 								</div>
 
